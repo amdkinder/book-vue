@@ -1,0 +1,13 @@
+export enum PostType {
+  NEWS = 'NEWS',
+
+  CATEGORY = 'CATEGORY',
+
+  HISTORY = 'HISTORY',
+
+  ANNOUNCEMENT = 'ANNOUNCEMENT',
+
+  MERCHANT = 'MERCHANT',
+
+  CONTACT = 'CONTACT',
+}

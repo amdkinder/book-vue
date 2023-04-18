@@ -15,50 +15,17 @@
 </template>
 
 <script lang="ts" setup>
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
+import {useHomeStore} from "@/stores/home.store";
+import {storeToRefs} from "pinia";
 
-const books = ref([
-  {
-    id: 1,
-    title: 'Sariq dev',
-    description: 'Khudayberdi Tukhtabaev was an Uzbek writer of children\'s stories. he studied at the Department of Philology at the University of Central Asia from 1950 until 1955. He worked for a time as a newspaper journalist, including at Tashkent haqiqati (The Truth of Tashkent) and Qizil O’zbekiston (Red Uzbekistan), and he was the editor of the monthly magazine Guliston. From 1972 until 1977, he worked as chief editor at Yosh Gvardiya (Young Guard) publishing house, and as assistant to the chief editor at Shark Yulduzi (Western Star) newspaper. In those days, he also worked as chief of editing at Yosh Kuch (Young Strength) newspaper.\n' +
-        '\n' +
-        'To\'xtaboyev began his career as a children\'s writer in 1958. He created the collection of stories Shoshqoloq (Hasty) in 1962, followed by other collections: Yosh Gvardiya (Young Guard), Sir Ochildi (The Secret Revealed), and Sehrli Qolpoqcha (A Magic Hat) (1965). To\'xtaboyev\'s writing was popular throughout Uzbekistan, and many children read his books as part of their school studies.\n' +
-        '\n' +
-        'To\'xtaboyev worked at the Kamalak publishing house as an editor, and then as lead editor. From 1960 until 1970, his most popular books were translated into other languages.\n',
-    publishedYear: 2013
-  },
-  {
-    id: 1,
-    title: 'Sariq dev',
-    description: 'Khudayberdi Tukhtabaev was an Uzbek writer of children\'s stories. he studied at the Department of Philology at the University of Central Asia from 1950 until 1955. He worked for a time as a newspaper journalist, including at Tashkent haqiqati (The Truth of Tashkent) and Qizil O’zbekiston (Red Uzbekistan), and he was the editor of the monthly magazine Guliston. From 1972 until 1977, he worked as chief editor at Yosh Gvardiya (Young Guard) publishing house, and as assistant to the chief editor at Shark Yulduzi (Western Star) newspaper. In those days, he also worked as chief of editing at Yosh Kuch (Young Strength) newspaper.\n' +
-        '\n' +
-        'To\'xtaboyev began his career as a children\'s writer in 1958. He created the collection of stories Shoshqoloq (Hasty) in 1962, followed by other collections: Yosh Gvardiya (Young Guard), Sir Ochildi (The Secret Revealed), and Sehrli Qolpoqcha (A Magic Hat) (1965). To\'xtaboyev\'s writing was popular throughout Uzbekistan, and many children read his books as part of their school studies.\n' +
-        '\n' +
-        'To\'xtaboyev worked at the Kamalak publishing house as an editor, and then as lead editor. From 1960 until 1970, his most popular books were translated into other languages.\n',
-    publishedYear: 2013
-  },
-  {
-    id: 1,
-    title: 'Sariq dev',
-    description: 'Khudayberdi Tukhtabaev was an Uzbek writer of children\'s stories. he studied at the Department of Philology at the University of Central Asia from 1950 until 1955. He worked for a time as a newspaper journalist, including at Tashkent haqiqati (The Truth of Tashkent) and Qizil O’zbekiston (Red Uzbekistan), and he was the editor of the monthly magazine Guliston. From 1972 until 1977, he worked as chief editor at Yosh Gvardiya (Young Guard) publishing house, and as assistant to the chief editor at Shark Yulduzi (Western Star) newspaper. In those days, he also worked as chief of editing at Yosh Kuch (Young Strength) newspaper.\n' +
-        '\n' +
-        'To\'xtaboyev began his career as a children\'s writer in 1958. He created the collection of stories Shoshqoloq (Hasty) in 1962, followed by other collections: Yosh Gvardiya (Young Guard), Sir Ochildi (The Secret Revealed), and Sehrli Qolpoqcha (A Magic Hat) (1965). To\'xtaboyev\'s writing was popular throughout Uzbekistan, and many children read his books as part of their school studies.\n' +
-        '\n' +
-        'To\'xtaboyev worked at the Kamalak publishing house as an editor, and then as lead editor. From 1960 until 1970, his most popular books were translated into other languages.\n',
-    publishedYear: 2013
-  },
-  {
-    id: 1,
-    title: 'Sariq dev',
-    description: 'Khudayberdi Tukhtabaev was an Uzbek writer of children\'s stories. he studied at the Department of Philology at the University of Central Asia from 1950 until 1955. He worked for a time as a newspaper journalist, including at Tashkent haqiqati (The Truth of Tashkent) and Qizil O’zbekiston (Red Uzbekistan), and he was the editor of the monthly magazine Guliston. From 1972 until 1977, he worked as chief editor at Yosh Gvardiya (Young Guard) publishing house, and as assistant to the chief editor at Shark Yulduzi (Western Star) newspaper. In those days, he also worked as chief of editing at Yosh Kuch (Young Strength) newspaper.\n' +
-        '\n' +
-        'To\'xtaboyev began his career as a children\'s writer in 1958. He created the collection of stories Shoshqoloq (Hasty) in 1962, followed by other collections: Yosh Gvardiya (Young Guard), Sir Ochildi (The Secret Revealed), and Sehrli Qolpoqcha (A Magic Hat) (1965). To\'xtaboyev\'s writing was popular throughout Uzbekistan, and many children read his books as part of their school studies.\n' +
-        '\n' +
-        'To\'xtaboyev worked at the Kamalak publishing house as an editor, and then as lead editor. From 1960 until 1970, his most popular books were translated into other languages.\n',
-    publishedYear: 2013
-  },
-])
+const homeStore = useHomeStore()
+const {books} = storeToRefs(homeStore)
+
+onMounted(() => {
+    homeStore.fetchAllBooks()
+})
+
 </script>
 
 <style scoped lang="scss">
