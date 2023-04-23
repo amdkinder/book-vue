@@ -1,9 +1,10 @@
 <template>
   <div class="header">
     <div class="title">
-      <h1>§Find Your Next Book</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-      <button>Explore Now</button>
+      <h1 class="home-title">§Find Your Next Book</h1>
+    <Button>AA</Button>
+      <p class="home-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+      <button class="home-btn">Explore Now</button>
     </div>
 
     <div class="img">
@@ -35,16 +36,16 @@
   }
   .title {
     transition: .5s;
-    h1 {
+    h1.home-title {
       font-size: 44px;
       display: flex;
       flex-wrap: wrap;
     }
-    p {
+    p.home-content {
       margin-top: 20px;
       max-width: 400px;
     }
-    button {
+    button.home-btn {
       margin-top: 20px;
       border: none;
       background: var(--color);
