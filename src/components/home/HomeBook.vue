@@ -1,8 +1,8 @@
 <template>
-  <h1>Books</h1>
+  <h1 v-t="{path: 'home.menu.books'}">Books</h1>
   <div class="books">
     <div class="book" v-for="(book, index) in books" :key="index">
-      <img src="src/assets/heap-books-sketch-library-stack-education-symbol_80590-12797.avif" alt="">
+      <img :src="homeStore.getImageUrl(book.imageUrl!!)" alt="">
       <div class="information">
         <h3>{{ book.title }}</h3>
         <p>{{ book.description }}</p>
@@ -86,6 +86,8 @@ onMounted(() => {
 
       img {
         width: 100%;
+        height: 300px;
+        object-fit: contain;
       }
     }
 

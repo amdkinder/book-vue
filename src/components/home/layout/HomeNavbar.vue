@@ -4,22 +4,21 @@
 
         <div class="div-ul" :class="{'active-navbar': isShowDivIf}">
             <a href="#books">
-                <div>Books</div>
+                <div v-t="{path: 'home.menu.books'}">Books</div>
                 <div><span></span></div>
             </a>
             <a href="#categories">
-                <div>Categories</div>
+                <div v-t="{path: 'home.menu.categories'}">Categories</div>
                 <div><span></span></div>
             </a>
             <a href="#footer">
-                <div>About Us</div>
+                <div v-t="{path: 'home.menu.contact'}">About Us</div>
                 <div><span></span></div>
             </a>
             <a href="#">
                 <div>
-                    <Dropdown v-model="currentLang" :options="allLanguageOptions" option-label="name"
+                    <Dropdown v-model="$i18n.locale" :options="allLanguageOptions" option-label="name"
                               option-value="code"></Dropdown>
-                    <!--        <div>{{ $t('home.language') }}</div>-->
                 </div>
                 <div><span></span></div>
             </a>
@@ -36,15 +35,22 @@
 </template>
 
 <script lang="ts" setup>
-import {ref} from "vue";
+import {ref, watch} from "vue";
 import CloseNavbarIcon from "@/components/icons/CloseNavbarIcon.vue";
 import OpenNavbarIcon from "@/components/icons/OpenNavbarIcon.vue";
 import {useLanguageStore} from "@/stores/language.store";
 import {storeToRefs} from "pinia";
 
+
 const isShowDivIf = ref(false)
 const languageStore = useLanguageStore()
 const {allLanguageOptions, currentLang} = storeToRefs(languageStore)
+
+watch(currentLang, (newLang) => {
+    console.log(newLang)
+})
+
+
 </script>
 
 <style scoped lang="scss">
@@ -74,9 +80,10 @@ const {allLanguageOptions, currentLang} = storeToRefs(languageStore)
       display: block;
       text-decoration: none;
       color: black;
-        display: flex ;
-        align-items: center;
-        justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
       .active {
         display: flex;
         height: 2px;

@@ -9,8 +9,8 @@ import {i18n} from "@/i18n/translation.load";
 
 import '@/assets/main.css'
 import "primevue/resources/primevue.css";
-import Button from "primevue/button";
 import "../src/assets/theme.css";
+import 'primeicons/primeicons.css';
 
 
 const app = createApp(App)

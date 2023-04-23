@@ -1,12 +1,11 @@
 <template>
 
-  <h1 class="title">Categories</h1>
+  <h1 class="title" v-t="{path: 'home.menu.categories'}">Categories</h1>
   <div class="categories">
     <div class="category" v-for="(category, index) in categories" :key="index">
-      <img :src="category.image" :alt="category.title">
+      <img src="src/assets/heap-books-sketch-library-stack-education-symbol_80590-12797.avif" :alt="category.name">
       <div class="information">
-        <h1>{{category.title}}</h1>
-        <p>{{ category.subTitle}}</p>
+        <p>{{ category.name}}</p>
       </div>
     </div>
 
@@ -15,13 +14,16 @@
 </template>
 
 <script lang="ts" setup>
-const categories = [
-  {
-    image: "src/assets/heap-books-sketch-library-stack-education-symbol_80590-12797.avif",
-    title: 'Mega Books',
-    subTitle: 'Lorem ipsum dolor.'
-  }
-]
+import {useHomeStore} from "@/stores/home.store";
+import {onMounted} from "vue";
+import {storeToRefs} from "pinia";
+
+const homeStore = useHomeStore()
+const {categories} = storeToRefs(homeStore)
+onMounted(() => {
+    homeStore.fetchAllCategories()
+})
+
 </script>
 
 <style scoped lang="scss">

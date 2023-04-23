@@ -2,7 +2,7 @@ import {defineStore} from "pinia";
 import {ref} from "vue";
 
 export const useLanguageStore = defineStore('lang', () => {
-    const currentLang = ref<string>("en")
+    const currentLang = ref<string>("uz")
 
     const setLanguage = (lang: string) => {
         currentLang.value = lang

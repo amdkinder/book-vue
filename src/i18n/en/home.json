@@ -1,4 +1,8 @@
 {
-  "message": "message",
-  "language": "Language"
+  "menu": {
+    "books": "Books",
+    "categories": "Categories",
+    "genres": "Genres",
+    "contact": "About us"
+  }
 }
