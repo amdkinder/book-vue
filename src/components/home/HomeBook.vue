@@ -1,23 +1,24 @@
 <template>
-  <h1 v-t="{path: 'home.menu.books'}">Books</h1>
-  <div class="books">
-    <div class="book" v-for="(book, index) in books" :key="index">
-      <img :src="homeStore.getImageUrl(book.imageUrl!!)" alt="">
-      <div class="information">
-        <h3>{{ book.title }}</h3>
-        <p>{{ book.description }}</p>
-        <span>{{ book.publishedYear }}</span>
-        <button>Read</button>
-      </div>
+    <h1 v-t="{path: 'home.menu.books'}">Books</h1>
+    <div class="books">
+        <div class="book" v-for="(book, index) in books" :key="index">
+            <img :src="homeStore.getImageUrl(book.imageUrl!!)" alt="">
+            <div class="information">
+                <h3>{{ book.title }}</h3>
+                <p>{{ book.description }}</p>
+                <span>{{ book.publishedYear }}</span>
+                <button @click="navigate">Read</button>
+            </div>
+        </div>
     </div>
-  </div>
 
 </template>
 
 <script lang="ts" setup>
-import {onMounted, ref} from "vue";
+import {onMounted} from "vue";
 import {useHomeStore} from "@/stores/home.store";
 import {storeToRefs} from "pinia";
+import router from "@/router";
 
 const homeStore = useHomeStore()
 const {books} = storeToRefs(homeStore)
@@ -25,6 +26,10 @@ const {books} = storeToRefs(homeStore)
 onMounted(() => {
     homeStore.fetchAllBooks()
 })
+
+const navigate = () => {
+    router.push('/book-viewer')
+}
 
 </script>
 
@@ -73,14 +78,6 @@ onMounted(() => {
           position: absolute;
           right: 0;
           top: 0;
-        }
-
-        button {
-          margin-top: 8px;
-          border: none;
-          background: var(--color);
-          padding: 8px 10px;
-          color: white;
         }
       }
 

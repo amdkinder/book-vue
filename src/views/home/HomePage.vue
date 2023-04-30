@@ -2,6 +2,7 @@
   <div class="main">
     <home-navbar/>
     <home-header/>
+      <pdf-viewer />
     <div id="books">
       <home-book/>
     </div>

@@ -1,21 +1,29 @@
 <template>
   <div class="footer">
     <div class="column">
-      <h1>Compony</h1>
+      <h1>Menu</h1>
       <ul>
-        <li>About Us</li>
-        <li>Contact Us</li>
-        <li>Vacancy</li>
-        <li>Compony</li>
+        <li>
+            <a href="#history">About Us</a>
+        </li>
+        <li>
+            <a href="#contact">Contact Us</a>
+        </li>
+        <li>
+            <a href="#books">Books</a>
+        </li>
+        <li>
+            <a href="#news">News</a>
+        </li>
       </ul>
     </div>
 
     <div class="column">
-      <h1>User</h1>
+      <h1>Users</h1>
       <ul>
-        <li>Axrorbek Kochkorov</li>
-        <li>Azizbek Kochkorov</li>
-        <li>Ikromiddinov Bahodirjon</li>
+<!--        <li>Axrorbek Kochkorov</li>-->
+<!--        <li>Azizbek Kochkorov</li>-->
+<!--        <li>Ikromiddinov Bahodirjon</li>-->
       </ul>
     </div>
 

@@ -102,6 +102,7 @@ declare module '@vue/runtime-core' {
     PanelMenuList: typeof import('./../node_modules/primevue/panelmenu/PanelMenuList.vue')['default']
     PanelMenuSub: typeof import('./../node_modules/primevue/panelmenu/PanelMenuSub.vue')['default']
     Password: typeof import('./../node_modules/primevue/password/Password.vue')['default']
+    PdfViewer: typeof import('./components/PdfViewer.vue')['default']
     PickList: typeof import('./../node_modules/primevue/picklist/PickList.vue')['default']
     Portal: typeof import('./../node_modules/primevue/portal/Portal.vue')['default']
     PrevPageLink: typeof import('./../node_modules/primevue/paginator/PrevPageLink.vue')['default']
