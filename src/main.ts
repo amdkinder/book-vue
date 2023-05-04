@@ -9,7 +9,10 @@ import {i18n} from "@/i18n/translation.load";
 
 import '@/assets/main.css'
 import "primevue/resources/primevue.css";
-import "../src/assets/theme.css";
+// import 'primevue/'
+// import "../src/assets/theme.css";\
+import "primevue/resources/themes/lara-light-indigo/theme.css";
+
 import 'primeicons/primeicons.css';
 
 

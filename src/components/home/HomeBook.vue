@@ -7,7 +7,7 @@
                 <h3>{{ book.title }}</h3>
                 <p>{{ book.description }}</p>
                 <span>{{ book.publishedYear }}</span>
-                <button @click="navigate">Read</button>
+                <Button @click="downloadBook(book)">Read</Button>
             </div>
         </div>
     </div>
@@ -19,8 +19,17 @@ import {onMounted} from "vue";
 import {useHomeStore} from "@/stores/home.store";
 import {storeToRefs} from "pinia";
 import router from "@/router";
+import {useContentStore} from "@/views/home/content.store";
+import type {IBook} from "@/shared/model/book.model";
 
 const homeStore = useHomeStore()
+const contentStore = useContentStore()
+
+
+const downloadBook = (book: IBook) => {
+    contentStore.download('bookms', book.pdfUrl!!, book.title!!)
+}
+
 const {books} = storeToRefs(homeStore)
 
 onMounted(() => {
