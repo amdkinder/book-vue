@@ -9,11 +9,6 @@ const router = createRouter({
             name: 'home',
             component: HomePage
         },
-        {
-            path: '/book-viewer',
-            name: 'pdf-viewer',
-            component: () => import('../components/PdfViewer.vue')
-        }
     ]
 })
 

@@ -1,14 +1,19 @@
 import {defineStore} from "pinia";
 import {BASE_URL} from "@/shared/constants";
 import axios from "axios";
+import {ref} from "vue";
 
 export const useContentStore = defineStore('content-store', () => {
 
 
-    // 29ead676-4604-4a5a-9e58-cbdaab71d2bd.pdf
+    const downloadLoading = ref<boolean>(false)
+
     const contentUrl = (microService: string, file: string) => `${BASE_URL}/services/${microService}/api/content-api/${file}`
 
-    const download = (ms: string, file: string, name: string) =>
+    const setLoading = (bool: boolean) => downloadLoading.value = bool
+
+    const download = (ms: string, file: string, name: string) => {
+        setLoading(true)
         axios
             .get(contentUrl(ms, file), {
                 responseType: "blob"
@@ -21,7 +26,15 @@ export const useContentStore = defineStore('content-store', () => {
                 docUrl.setAttribute('download', name + '.pdf');
                 document.body.appendChild(docUrl);
                 docUrl.click();
+                setLoading(false)
+            })
+            .catch(err => {
+                console.log("Can not download book: ", err)
+                setLoading(false)
             })
 
-    return {download}
+    }
+
+    return {download, downloadLoading}
+
 })

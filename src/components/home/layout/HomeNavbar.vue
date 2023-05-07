@@ -17,8 +17,8 @@
             </a>
             <a href="#">
                 <div>
-                    <Dropdown v-model="$i18n.locale" :options="allLanguageOptions" option-label="name"
-                              option-value="code"></Dropdown>
+                    <a-dropdown v-model="$i18n.locale" :options="allLanguageOptions" option-label="name"
+                              option-value="code"></a-dropdown>
                 </div>
                 <div><span></span></div>
             </a>

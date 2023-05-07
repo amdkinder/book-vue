@@ -1,18 +1,17 @@
 <template>
-  <div class="main">
-    <home-navbar/>
-    <home-header/>
-      <pdf-viewer />
-    <div id="books">
-      <home-book/>
+    <div class="main">
+        <home-navbar/>
+            <home-header/>
+            <div id="books" class="section">
+                <home-book/>
+            </div>
+            <div id="categories" class="section">
+                <home-categories/>
+            </div>
+            <div id="footer" class="section">
+                <home-footer/>
+            </div>
     </div>
-    <div id="categories">
-      <home-categories/>
-    </div>
-    <div id="footer">
-      <home-footer/>
-    </div>
-  </div>
 </template>
 
 <script setup lang="ts">

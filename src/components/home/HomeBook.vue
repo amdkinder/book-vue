@@ -4,10 +4,12 @@
         <div class="book" v-for="(book, index) in books" :key="index">
             <img :src="homeStore.getImageUrl(book.imageUrl!!)" alt="">
             <div class="information">
-                <h3>{{ book.title }}</h3>
-                <p>{{ book.description }}</p>
+                <div class="info-content">
+                    <h3>{{ book.title }}</h3>
+                    <p>{{ book.description }}</p>
+                    <a-button @click="downloadBook(book)" :loading="downloadLoading">Download</a-button>
+                </div>
                 <span>{{ book.publishedYear }}</span>
-                <Button @click="downloadBook(book)">Read</Button>
             </div>
         </div>
     </div>
@@ -24,7 +26,7 @@ import type {IBook} from "@/shared/model/book.model";
 
 const homeStore = useHomeStore()
 const contentStore = useContentStore()
-
+const {downloadLoading} = storeToRefs(contentStore)
 
 const downloadBook = (book: IBook) => {
     contentStore.download('bookms', book.pdfUrl!!, book.title!!)
@@ -53,6 +55,7 @@ const navigate = () => {
     display: flex;
     justify-content: center;
     width: 100%;
+    margin-top: 50px;
     font-weight: 600;
   }
 
@@ -71,6 +74,10 @@ const navigate = () => {
 
       .information {
         position: relative;
+
+        .info-content {
+          width: 90%;
+        }
 
         p {
           margin-top: 8px;

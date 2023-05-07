@@ -1,7 +1,12 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    font-family: Gilroy, serif;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url("./fonts/Gilroy-Regular.ttf");
 }
 
 html {
