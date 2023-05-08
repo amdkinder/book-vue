@@ -7,7 +7,7 @@
         </div>
 
         <div class="img">
-            <img src="src/assets/heap-books-sketch-library-stack-education-symbol_80590-12797.avif" alt="">
+            <img src="@/assets/heap-books-sketch-library-stack-education-symbol_80590-12797.avif" alt="asss">
         </div>
     </div>
 </template>

@@ -3,7 +3,7 @@
   <h1 class="title" v-t="{path: 'home.menu.categories'}">Categories</h1>
   <div class="categories">
     <div class="category" v-for="(category, index) in categories" :key="index">
-      <img src="src/assets/heap-books-sketch-library-stack-education-symbol_80590-12797.avif" :alt="category.name">
+      <img src="@/assets/heap-books-sketch-library-stack-education-symbol_80590-12797.avif" :alt="category.name!">
       <div class="information">
         <p>{{ category.name}}</p>
       </div>
